@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saif Hospital</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --accent: #00b4d8;
+      --dark: #023e8a;
+      --light-bg: #f8f9fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: var(--light-bg); color: #333; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    .hero {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 1rem; }
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    section { padding: 3rem 1rem; }
+    .services { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .service {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .contact form {
+      max-width: 500px;
+      margin: 1rem auto;
+      display: grid;
+      gap: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 0.3rem;
+      font-size: 1rem;
+    }
+    button.submit {
+      width: fit-content;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      border-radius: 0.3rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #e9ecef;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+      }
+      nav.show { display: flex; }
+      nav ul { flex-direction: column; gap: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Saif Hospital</h2>
+  <span class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰</span>
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>Compassionate Care, Advanced Medicine</h1>
+  <p>Your well‑being is our mission.</p>
+  <button onclick="document.querySelector('#contact input').focus()">Book Now</button>
+</div>
+
+<section class="services" id="services">
+  <div class="service">
+    <h3>24/7 Emergency</h3>
+    <p>Expert care when you need it most.</p>
+  </div>
+  <div class="service">
+    <h3>Specialist Doctors</h3>
+    <p>Cardiology, pediatrics, neurology & more.</p>
+  </div>
+  <div class="service">
+    <h3>Advanced Diagnostics</h3>
+    <p>State‑of‑the‑art lab and imaging facilities.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Get In Touch</h2>
+  <form>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+    <button type="submit" class="submit">Submit</button>
+  </form>
+
+  <p style="max-width:600px; margin:2rem auto; font-style:italic; text-align:center;">
+    The mission of Saif Hospital is to run a modern healthcare facility with the aim to provide cost‑effective, high‑quality medical services to our community, coupled with compassionate and accessible care.
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 Saif Hospital. All Rights Reserved.
+</footer>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    document.querySelector('nav').classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
